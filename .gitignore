@@ -1,0 +1,26 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+Sera borrado .idea/dissoierp.iml
+Sera borrado .idea/inspectionProfiles/
+Sera borrado .idea/misc.xml
+Sera borrado .idea/modules.xml
+Sera borrado .idea/workspace.xml
+Sera borrado clientes/__init__.py
+Sera borrado clientes/admin.py
+Sera borrado clientes/apps.py
+Sera borrado clientes/models.py
+Sera borrado clientes/tests.py
+Sera borrado clientes/views.py
+Sera borrado db.sqlite3
+Sera borrado dissoierp/__pycache__/
+Sera borrado clientes/__pycache__/
+Sera borrado clientes/migrations/__pycache__/
+Sera borrado funcionarios/__pycache__/
+Sera borrado funcionarios/migrations/__pycache__/
