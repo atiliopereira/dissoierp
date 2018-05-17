@@ -15,16 +15,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 
-import clientes
-import funcionarios
+from presupuestos.ajax import get_item_material
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('admin/clientes/', clientes.urls),
-    #path('admin/funcionarios/', funcionarios.urls),
-]
+    re_path(r'^admin/presupuestos/get_item_material$', get_item_material),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+admin.site.site_header = "Dissoi ERP"
+admin.site.site_title = "Sofware para PYMES"
