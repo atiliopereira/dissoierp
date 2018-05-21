@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import register
-from materiales.models import UnidadDeMedida, CategoriaDeMateriales, Material
+
+from materiales.models import UnidadDeMedida, CategoriaDeMateriales, Material, DetalleDeCosteo
 
 
 @register(UnidadDeMedida)
@@ -34,10 +35,18 @@ class CategoriaListFilter(admin.SimpleListFilter):
             return queryset.filter(categoria__categoria_principal=self.value())
 
 
+class DetalleDeCosteo(admin.TabularInline):
+    model = DetalleDeCosteo
+    fk_name = 'material_referencia'
+    autocomplete_fields = ['material']
+    extra = 1
+
+
 @register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ('codigo', 'descripcion', 'unidad_de_medida', 'categoria', 'stock_actual', 'precio')
+    list_display = ('codigo', 'descripcion', 'unidad_de_medida', 'tipo', 'categoria', 'stock_actual', 'precio')
     list_display_links = ('codigo', 'descripcion')
     ordering = ('id', 'descripcion')
     search_fields = ['descripcion', 'codigo']
-    list_filter = (CategoriaListFilter, )
+    list_filter = ('tipo', CategoriaListFilter)
+    inlines = (DetalleDeCosteo, )
