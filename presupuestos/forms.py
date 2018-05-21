@@ -104,7 +104,7 @@ class DetalleDePresupuestoForm(forms.ModelForm):
         if self.instance.pk:
             self.fields['item'].queryset = Item.objects.filter(
                 detalledepresupuesto__presupuesto_id=self.instance.presupuesto_id)
-            self.fields['unidad_medida'].initial = self.instance.item.unidad_de_medida.nombre
+
         else:
             self.initial['precio_unitario'] = 0.0
             self.initial['subtotal'] = 0.0
