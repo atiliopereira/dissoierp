@@ -37,8 +37,6 @@ class Item(models.Model):
 
 
 class DetalleDeItem(models.Model):
-    class Meta:
-        verbose_name_plural = 'Costeo'
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     material = models.ForeignKey('materiales.Material', on_delete=models.CASCADE)
     cantidad = models.DecimalField(max_digits=6, decimal_places=2, default=1)
