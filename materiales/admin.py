@@ -47,6 +47,7 @@ class MaterialAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'descripcion', 'unidad_de_medida', 'tipo', 'categoria', 'stock_actual', 'precio')
     list_display_links = ('codigo', 'descripcion')
     ordering = ('id', 'descripcion')
-    search_fields = ['descripcion', 'codigo']
+    search_fields = ('descripcion', 'codigo')
     list_filter = ('tipo', CategoriaListFilter)
     inlines = (DetalleDeCosteo, )
+    autocomplete_fields = ('categoria', )
