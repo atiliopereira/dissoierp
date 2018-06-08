@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import register
 
+from materiales.forms import MaterialForm
 from materiales.models import UnidadDeMedida, CategoriaDeMateriales, Material, DetalleDeCosteo
 
 
@@ -44,6 +45,7 @@ class DetalleDeCosteo(admin.TabularInline):
 
 @register(Material)
 class MaterialAdmin(admin.ModelAdmin):
+    change_form_template = 'material_form.html'
     list_display = ('codigo', 'descripcion', 'unidad_de_medida', 'tipo', 'categoria', 'stock_actual', 'precio')
     list_display_links = ('codigo', 'descripcion')
     ordering = ('id', 'descripcion')
