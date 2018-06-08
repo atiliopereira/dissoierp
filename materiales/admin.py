@@ -44,6 +44,7 @@ class DetalleDeCosteo(admin.TabularInline):
 
 @register(Material)
 class MaterialAdmin(admin.ModelAdmin):
+    change_form_template = 'material_form.html'
     list_display = ('codigo', 'descripcion', 'unidad_de_medida', 'tipo', 'categoria', 'stock_actual', 'precio')
     list_display_links = ('codigo', 'descripcion')
     ordering = ('id', 'descripcion')

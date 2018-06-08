@@ -68,7 +68,7 @@ class Material(models.Model):
         verbose_name = "material"
         verbose_name_plural = "materiales"
 
-    tipo = models.CharField(max_length=3, choices=TipoItem.TIPOS)
+    tipo = models.CharField(max_length=3, choices=TipoItem.TIPOS, default=TipoItem.PRODUCTO)
     categoria = models.ForeignKey(CategoriaDeMateriales, verbose_name="categoría", on_delete=models.CASCADE)
     codigo = models.CharField(max_length=20, verbose_name="código", null=True, blank=True)
     descripcion = models.CharField(max_length=150, verbose_name="descripción")
@@ -98,6 +98,6 @@ class DetalleDeCosteo(models.Model):
         verbose_name = 'Material de costeo'
         verbose_name_plural = 'Costeo'
     material_referencia = models.ForeignKey(Material, related_name='material_fk', on_delete=models.CASCADE,
-                                            editable=False)
+                                            editable=False, null=True)
     material = models.ForeignKey(Material, related_name='material_detalle', on_delete=models.PROTECT)
     cantidad = models.DecimalField(max_digits=6, decimal_places=2, default=1)
