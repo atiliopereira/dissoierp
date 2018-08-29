@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clientes',
     'funcionarios',
-    'materiales',
-    'presupuestos',
+    'items',
     'dal',
     'dal_select2',
 ]

@@ -17,15 +17,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 
-from presupuestos.ajax import get_item_material
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^admin/presupuestos/get_item_material$', get_item_material),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "Dissoi ERP"

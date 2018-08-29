@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import register
 
-from materiales.models import UnidadDeMedida, CategoriaDeMateriales, Material, DetalleDeCosteo
+from items.models import UnidadDeMedida, CategoriaDeItem, Item, DetalleDeItem
 
 
 @register(UnidadDeMedida)
@@ -12,8 +12,8 @@ class UnidadDeMedidaAdmin(admin.ModelAdmin):
     search_fields = ('nombre', 'simbolo')
 
 
-@register(CategoriaDeMateriales)
-class CategoriaDeMaterialAdmin(admin.ModelAdmin):
+@register(CategoriaDeItem)
+class CategoriaDeItemAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre', 'categoria_padre',)
     list_display_links = ('id', 'nombre')
     ordering = ('nombre_completo',)
@@ -26,7 +26,7 @@ class CategoriaListFilter(admin.SimpleListFilter):
     parameter_name = 'categoria_principal'
 
     def lookups(self, request, model_admin):
-        queryset = CategoriaDeMateriales.objects.all().distinct('categoria_principal__nombre_completo')
+        queryset = CategoriaDeItem.objects.all().distinct('categoria_principal__nombre_completo')
         return queryset.values_list('categoria_principal', 'categoria_principal__nombre_completo').order_by(
             'categoria_principal__nombre_completo')
 
@@ -35,20 +35,28 @@ class CategoriaListFilter(admin.SimpleListFilter):
             return queryset.filter(categoria__categoria_principal=self.value())
 
 
-class DetalleDeCosteo(admin.TabularInline):
-    model = DetalleDeCosteo
-    fk_name = 'material_referencia'
-    autocomplete_fields = ['material']
+class DetalleDeItemInline(admin.TabularInline):
+    model = DetalleDeItem
+    fk_name = 'item_referencia'
+    autocomplete_fields = ['item']
     extra = 1
 
 
-@register(Material)
-class MaterialAdmin(admin.ModelAdmin):
-    change_form_template = 'material_form.html'
+@register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    change_form_template = 'item_form.html'
     list_display = ('codigo', 'descripcion', 'unidad_de_medida', 'tipo', 'categoria', 'stock_actual', 'precio')
     list_display_links = ('codigo', 'descripcion')
     ordering = ('id', 'descripcion')
     search_fields = ('descripcion', 'codigo')
     list_filter = ('tipo', CategoriaListFilter)
-    inlines = (DetalleDeCosteo, )
+    inlines = []
     autocomplete_fields = ('categoria', )
+
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        self.inlines = (DetalleDeItemInline,)
+        return super(ItemAdmin, self).change_view(request, object_id, form_url, extra_context)
+
+    def add_view(self, request, form_url='', extra_context=None):
+        self.inlines = (DetalleDeItemInline,)
+        return super(ItemAdmin, self).add_view(request, form_url, extra_context)
