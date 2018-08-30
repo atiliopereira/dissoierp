@@ -1,14 +1,15 @@
 class EstadoPresupuesto:
-    PENDIENTE = 'PEN'
-    REVISION = 'REV'
+    BORRADOR = 'BOR'
+    REVISADO = 'REV'
+    ENVIADO = 'ENV'
     APROBADO = 'APR'
-    CONFIRMADO = 'CON'
     RECHAZADO = 'REC'
-
+    TERMINADO = 'TER'
     ESTADOS = (
-        (PENDIENTE, 'Pendiente'),
-        (REVISION, 'En revisión'),
+        (BORRADOR, 'Borrador'),
+        (REVISADO, 'Revisado'),
+        (ENVIADO, 'Enviado al cliente'),
         (APROBADO, 'Aprobado'),
-        (CONFIRMADO, 'Confirmado o señado'),
         (RECHAZADO, 'Rechazado'),
+        (TERMINADO, 'Trabajo terminado')
     )
