@@ -28,3 +28,9 @@ class DetalleDePresupuesto(models.Model):
     cantidad = models.DecimalField(max_digits=12, decimal_places=2)
     precio_unitario = models.DecimalField(max_digits=15, decimal_places=2)
     subtotal = models.DecimalField(max_digits=15, decimal_places=2)
+
+
+class AdjuntoDePresupuesto(models.Model):
+    presupuesto = models.ForeignKey('presupuestos.Presupuesto', on_delete=models.CASCADE)
+    descripcion = models.CharField(max_length=100)
+    archivo = models.ImageField()
