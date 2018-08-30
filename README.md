@@ -16,13 +16,13 @@ Tecnología: Django-Python
 Licencia: MIT
 
 ---
-#Descripción
+# Descripción
 Dissoi-ERP es un software de gestión de recursos para Pymes de producción.
 Con él se pretende brindar una solución completa y flexible para distintas empresas dedicadas no solo a la venta de productos, sino especialmente a aquellas que a utilizan materia prima, y crean o dan valor agregado a sus productos.
 
 e.g. mueblerías, industrias publicitarias, gráficas, contratistas, talleres, etcétera.
 
-##Módulos:
+## Módulos:
 * Presupuestos: Costeo y seguimiento
 * Producción: Ordenes de trabajo
 * Ventas: Facturación, cobranza y remisiones
@@ -31,8 +31,8 @@ e.g. mueblerías, industrias publicitarias, gráficas, contratistas, talleres, e
 
 El sistema integra todas las áreas involucradas en el proceso, pero también permite la utilización de los módulos de manera aislada.
 
-#Funciones del sistema
-###Funcionarios
+# Funciones del sistema
+### Funcionarios
 - Funcionarios: Creación y modificación y consulta funcionarios
 	- Nombre
 	- Apellido
@@ -43,7 +43,7 @@ El sistema integra todas las áreas involucradas en el proceso, pero también pe
 	- usuario (un funcionario puede no tener *usuario en el sistema*, pero se requiere su registro para referencias dentro del sistema)
 Obs: Los permisos de usuarios se gestionan en el módulo "Auth"
 
-###Clientes
+### Clientes
 - Clientes: Creación, modificación y consulta de datos del cliente:
 	- Razón Social
 	- Ruc
@@ -54,7 +54,7 @@ Obs: Los permisos de usuarios se gestionan en el módulo "Auth"
 	- Marcas (Un cliente puede tener varias marcas asociadas)
 	- Contacto (Persona con la que se tiene contacto directo o representa al cliente)
 
-###Items
+### Items
 Llamamos items a los productos y/o servicios que se presupuestan y venden.
 
 - Unidades de medida: Creación, modificación y consulta de unidades de medida de items.
