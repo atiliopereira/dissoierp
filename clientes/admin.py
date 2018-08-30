@@ -17,5 +17,4 @@ class ContactoInlineAdmin(admin.TabularInline):
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('razon_social', 'ruc', 'email', 'direccion', 'telefono', 'vendedor')
     search_fields = ('razon_social', 'ruc')
-
     inlines = [MarcaInlineAdmin, ContactoInlineAdmin]
