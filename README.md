@@ -87,4 +87,26 @@ Es insumo | ✓ | ✕ | ✕ | Condición para que no se exija órden de trabajo 
 Es plantilla | ✕ | ✕ | ✓ | Se usa como plantilla para volver a incluir en presupuesto o venta.
 Lista de materiales | ✕ | ✕ | ✓ | Productos y servicios utilizados en la elaboración.
 
-radas en el proceso, pero también permite la utilización de los módulos de manera aislada.
+### Presupuestos
+- Presupuestos: Creación y consulta de presupuestos
+    - Descripción
+    - Cliente
+    - Forma de pago (especificaciones como requiere seña, pago previo, o cuotas)
+    - Validéz del presupuesto
+    - Observaciones
+    - Descuento
+    - Total (calculado de los subtotales menos el descuento)
+    - Estado:
+        - Borrador
+        - Revisado (listo para enviarse al cliente)
+        - Enviado
+        - Aprobado (aprobado por el cliente)
+        - Rechazado
+        - Terminado 
+    - Creador (usuario del sistema)
+    - Detalles (items)
+    - Adjuntos (esquemas o diseños del trabajo a realizarse)
+
+    
+    
+    
