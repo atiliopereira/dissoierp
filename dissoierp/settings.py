@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'presupuestos',
     'dal',
     'dal_select2',
+    'coverage',
 ]
 
 MIDDLEWARE = [
